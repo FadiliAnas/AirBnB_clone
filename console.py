@@ -1,7 +1,9 @@
 import cmd
 
 from models.base_model import BaseModel
+from models.user import User
 import models
+
 
 class HBNBCommand(cmd.Cmd):
     prompt = " (hbnb) "
@@ -67,7 +69,47 @@ class HBNBCommand(cmd.Cmd):
             if key in objects:
                 print(objects[key])
             else:
-                print("** no instance found **")
+                print("** no instance found *")
+
+    def do_update(self, arg):
+        """Update an instance based on the class name and id."""
+        try:
+            args = arg.split()
+            if not args:
+                print("** class name missing **")
+                return
+
+            class_name = args[0]
+            if class_name not in globals():
+                print("** class doesn't exist **")
+                return
+            instances = models.storage.all()
+            instance_id = args[1]
+            key = class_name + "." + instance_id
+            attr_name = args[2]
+            attr_value = args[3]
+            if str(attr_value) is True:
+                attr_value = attr_value[1:-1]
+            try:
+                attr_value = int(attr_value)
+            except ValueError:
+                try:
+                    attr_value = float(attr_value)
+                except ValueError:
+                    pass
+            instance = instances[key]
+            setattr(instance, attr_name, attr_value)
+            instance.save()
+        except IndexError:
+            if len(args) < 2:
+                print("** instance id missing **")
+                return
+            if len(args) < 3:
+                print("** attribute name missing **")
+                return
+            if len(args) < 4:
+                print("** value missing **")
+                return
 
 
 if __name__ == '__main__':
