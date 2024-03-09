@@ -28,5 +28,13 @@
         "created_at": "2024-03-09T11:58:14.975809",
         "updated_at": "2024-03-09T11:58:14.975825",
         "__class__": "User"
+    },
+    "BaseModel.eab7c92a-98af-458d-a3f3-e98a50aa11e8": {
+        "id": "eab7c92a-98af-458d-a3f3-e98a50aa11e8",
+        "created_at": "2024-03-09T12:05:26.695918",
+        "updated_at": "2024-03-09T12:05:26.695991",
+        "name": "My First Model",
+        "my_number": 89,
+        "__class__": "BaseModel"
     }
 }
