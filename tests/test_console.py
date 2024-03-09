@@ -5,26 +5,32 @@ from io import StringIO
 from console import HBNBCommand
 
 class TestHBNBCommand(unittest.TestCase):
-    def setUp(self):
-        self.console = HBNBCommand()
+"""this will test the console"""
 
-    def tearDown(self):
-        pass
+    def test_help(self):
+        """test if help works right"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help")
+        output = "EOF  all  count  create  destroy  help  quit  show  update"
+        self.assertTrue(output in f.getvalue())
 
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_quit(self, mock_stdout):
-        with patch('builtins.input', side_effect=['quit']):
-            self.console.cmdloop()
-            self.assertEqual(mock_stdout.getvalue(), '(hbnb) ')
+    def test_create(self):
+        """test if create works right"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("create")
+            self.assertEqual(f.getvalue(), "** class name missing **\n")
 
-    @patch('sys.stdout', new_callable=StringIO)
-    def test_EOF(self, mock_stdout):
-        with patch('builtins.input', side_effect=['EOF']):
-            self.console.cmdloop()
-            self.assertEqual(mock_stdout.getvalue(), '\n')
+    def test_quit(self):
+        """test if quit works right"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("quit")
+            self.assertTrue(f.getvalue() == "")
 
-        # Write similar tests for other commands like create, show, destroy, update, etc.
-
+    def test_show(self):
+        """test if show works right"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("show")
+            self.assertTrue(f.getvalue() == "** class name missing **\n")
 if __name__ == '__main__':
     unittest.main()
 
