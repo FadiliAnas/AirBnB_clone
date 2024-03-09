@@ -5,8 +5,10 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """ This class of base model """
+
     def __init__(self, *args, **kwargs):
         """ Initialize BaseModel instance """
         if kwargs:
@@ -21,15 +23,19 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             models.storage.new(self)
+
     def __str__(self):
         """ This method defines as a string """
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}". \
+            format(self.__class__.__name__, self.id, self.__dict__)
+
     def save(self):
         """ This method represent updates the public instance attribute """
         self.updated_at = datetime.now()
         models.storage.save()
+
     def to_dict(self):
-        """This method represent a dictionary containing all keys/values """   #strftime to get string formatting datetime
+        """This method represent a dictionary containing """
         obj_dict = self.__dict__.copy()
         obj_dict['id'] = self.id
         obj_dict['__class__'] = self.__class__.__name__
