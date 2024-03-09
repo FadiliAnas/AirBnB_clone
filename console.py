@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
         except SyntaxError:
             print("** class name missing **")
-        except KeyError:
+        except NameError:
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
@@ -119,6 +119,29 @@ class HBNBCommand(cmd.Cmd):
                     print(count_)
             else:
                 print(count_)
+    def do_show(self, line):
+        """This method represents show instance"""
+        try:
+            args = line.split()
+            lenght = len(args)
+            class_name = args[0]
+            instance_id = args[1]
+            key = class_name + "." + instance_id
+            objects = models.storage.all()
+            if key in objects:
+                print(objects[key])
+            else:
+                print("** no instance found **")
+        except IndexError:
+            if lenght ==0:
+                print("** class name missing **")
+            if lenght == 1:
+                if args[0] in class_mapping:
+                    print("** instance id missing **") 
+                else:
+                    print("** class doesn't exist **")
+        except KeyError:
+            print("** class doesn't exist **")
 
     def do_update(self, arg):
         """Update an instance based on the class name and id."""
@@ -151,9 +174,15 @@ class HBNBCommand(cmd.Cmd):
                     attr_value = float(attr_value)
                 except ValueError:
                     pass
-            instance = instances[key]
-            setattr(instance, attr_name, attr_value)
-            instance.save()
+            try:
+                instance = instances[key]
+                setattr(instance, attr_name, attr_value)
+                instance.save()
+            except KeyError:
+                if args[0] in class_mapping:
+                    print("** no instance found **")
+                else:
+                    print("** class doesn't exist **")
         except IndexError:
             if len(args) < 2:
                 print("** instance id missing **")
