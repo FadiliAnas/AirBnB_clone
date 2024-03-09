@@ -1,8 +1,25 @@
+#!/usr/bin/python3
+"""This module represents this console"""
 import cmd
-
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 import models
+import json
+
+class_mapping = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "State": State,
+    "City": City,
+    "Amenity": Amenity,
+    "Place": Place,
+    "Review": Review
+}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,8 +31,6 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         print("\n")
         return True
-    # def help_exit(self):
-        # print ("Exit the interpreter.")
 
     def help_quit(self):
         """Help for quit command"""
@@ -32,44 +47,66 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
+        """This function defines the destroy method"""
         try:
             args = []
-            args = arg.split(" ")
-            print(args[0])
-            storage_dict = models.storage.all()
-            key_to_delete = "{}.{}".format(args[0], args[1])
-            if key_to_delete in storage_dict:
-                del storage_dict[key_to_delete]
-                models.storage.save()
-        except KeyError:
-            print("** class name missing **")
-        except NameError:
-            print("** class name missing **")
+            args = arg.split()
+            lenght = len(args)
+
+            if lenght == 0:
+                print("** class name missing **")
+            elif args[0] not in class_mapping:
+                print("** class doesn't exist **")
+            else:
+                key_to_delete = "{}.{}".format(args[0], args[1])
+                storage_dict = models.storage.all()
+                try:
+                    del storage_dict[key_to_delete]
+                    models.storage.save()
+                except KeyError:
+                    print("** no instance found **")
+        except IndexError:
+            pass
 
     def do_all(self, arg):
+        """This function represents all instance"""
         listall = []
+        listarg = []
         storage_dict = models.storage.all()
-        for k, v in storage_dict.items():
-            listall.append(v)
-        for o in listall:
-            print(str(o))
+        if arg not in class_mapping and len(arg) != 0:
+            print("** class doesn't exist **")
+        for v in storage_dict.values():
+            listall.append(str(v))
+        if arg:
+            if arg in class_mapping:
+                for i in listall:
+                    if arg in i:
+                        listarg.append(i)
+                print(listarg)
+        else:
             print(listall)
 
-    def do_show(self, line):
-        args = line.split()
-        if not args:
-            print("** class name missing **")
-        elif len(args) < 2:
-            print("** instance id missing **")
-        else:
-            class_name = args[0]
-            instance_id = args[1]
-            key = class_name + "." + instance_id
-            objects = models.storage.all()
-            if key in objects:
-                print(objects[key])
+    def do_count(self, arg):
+        listall = []
+        listarg = []
+        storage_dict = models.storage.all()
+        count_ = 0
+
+        if arg not in class_mapping and len(arg) != 0:
+            print("** class doesn't exist **")
+            for v in storage_dict.values():
+                listall.append(str(v))
+                count_ += 1
+            if arg:
+                count_ = 0
+                if arg in class_mapping:
+                    for i in listall:
+                        if arg in i:
+                            listarg.append(i)
+                            count_ += 1
+                    print(count_)
             else:
-                print("** no instance found *")
+                print(count_)
 
     def do_update(self, arg):
         """Update an instance based on the class name and id."""
@@ -80,14 +117,19 @@ class HBNBCommand(cmd.Cmd):
                 return
 
             class_name = args[0]
-            if class_name not in globals():
+            if class_name not in class_mapping:
                 print("** class doesn't exist **")
                 return
             instances = models.storage.all()
             instance_id = args[1]
             key = class_name + "." + instance_id
             attr_name = args[2]
+            if attr_name[0] == '"' and attr_name[-1] == '"':
+                attr_name = attr_name[1:-1]
+
             attr_value = args[3]
+            if attr_value[0] == '"' and attr_value[-1] == '"':
+                attr_value = attr_value[1:-1]
             if str(attr_value) is True:
                 attr_value = attr_value[1:-1]
             try:
@@ -110,6 +152,50 @@ class HBNBCommand(cmd.Cmd):
             if len(args) < 4:
                 print("** value missing **")
                 return
+
+    def default(self, arg):
+        """This function represents the default value."""
+        try:
+
+            listarg = arg.split('(')
+            list_left = listarg[0].split('.')
+            function_ = list_left[1]
+            class_ = list_left[0]
+
+            if len(listarg) == 2:
+                if function_ == 'all':
+                    self.do_all(class_)
+                elif function_ == 'count':
+                    self.do_count(class_)
+                elif function_ == 'show':
+                    instance_id = listarg[1].strip(')\"')
+                    self.do_show(f"{class_} {instance_id}")
+                elif function_ == 'destroy':
+                    instance_id = listarg[1].strip(')\"')
+                    self.do_destroy(f"{class_} {instance_id}")
+                elif function_ == 'update':
+                    update_args = listarg[1].rstrip(')').split(', ', 1)
+                    instance_id = update_args[0].strip().strip('"')
+                    print(update_args[1])
+                    if isinstance(update_args[1], dict)  \
+                       or "{" in update_args[1]:
+                        update_args[1] = update_args[1].strip('{}')
+                        update_new = update_args[1].split(', ')
+                        update_dict = {item.split(': ')[0]: item.split(': ')[
+                            1] for item in update_new}
+                        for k, v in update_dict.items():
+                            k = k.strip('"\'')
+                            self.do_update(f"{class_} {instance_id} {k} {v}")
+                        else:
+                            update_new = update_args[1].split(',')
+                            attr_name = update_new[0].strip().strip('"')
+                            attr_value = update_new[1].strip()
+                            self.do_update(
+                                f"{class_} {instance_id} \
+                                {attr_name} {attr_value}")
+
+        except IndexError:
+            print("** invalid command **")
 
 
 if __name__ == '__main__':
