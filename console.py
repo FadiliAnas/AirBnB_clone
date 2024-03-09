@@ -54,7 +54,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_instance.id)
         except SyntaxError:
             print("** class name missing **")
-        except NameError:
+        except KeyError:
             print("** class doesn't exist **")
 
     def do_destroy(self, arg):
