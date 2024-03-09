@@ -23,7 +23,7 @@ class_mapping = {
 
 
 class HBNBCommand(cmd.Cmd):
-    prompt = " (hbnb) "
+    prompt = "(hbnb) "
 
     def do_quit(self, arg):
         """ This method represents quit"""
@@ -31,12 +31,20 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """ This method represents EOF"""
-        print("\n")
+        print()
         return True
 
     def help_quit(self):
         """Help for quit command"""
         print("Quit command to exit the program")
+
+    def do_quit(self, line):
+        """ This method represents quit Commande"""
+        return True
+
+    def emptyline(self):
+        """This module represents empty line """
+        pass
 
     def do_create(self, arg):
         """ This method represents create"""
