@@ -227,13 +227,13 @@ class HBNBCommand(cmd.Cmd):
                         for k, v in update_dict.items():
                             k = k.strip('"\'')
                             self.do_update(f"{class_} {instance_id} {k} {v}")
-                        else:
-                            update_new = update_args[1].split(',')
-                            attr_name = update_new[0].strip().strip('"')
-                            attr_value = update_new[1].strip()
-                            self.do_update(
-                                f"{class_} {instance_id} \
-                                {attr_name} {attr_value}")
+                    else:
+                        update_new = update_args[1].split(',')
+                        attr_name = update_new[0].strip().strip('"')
+                        attr_value = update_new[1].strip()
+                        self.do_update(
+                            f"{class_} {instance_id} \
+                            {attr_name} {attr_value}")
 
         except IndexError:
             print("** invalid command **")
