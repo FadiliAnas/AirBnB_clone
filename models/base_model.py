@@ -25,8 +25,11 @@ class BaseModel:
 
     def __str__(self):
         """ This method defines as a string """
-        return "[{}] ({}) {}". \
-            format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__, 
+            self.id,
+            self.__dict__
+        )
 
     def save(self):
         """ This method represent updates the public instance attribute """
