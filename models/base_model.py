@@ -15,7 +15,7 @@ class BaseModel:
                 if k == '__class__':
                     continue
                 elif k in ['created_at', 'updated_at']:
-                    w = datetime.now().strptime(w, '%Y-%m-%dT%H:%M:%S.%f')
+                    w = datetime.datetime.now().fromisoformat(w)
                 setattr(self, k, w)
         else:
             self.id = str(uuid.uuid4())
