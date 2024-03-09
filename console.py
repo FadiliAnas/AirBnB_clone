@@ -106,17 +106,17 @@ class HBNBCommand(cmd.Cmd):
 
         if arg not in class_mapping and len(arg) != 0:
             print("** class doesn't exist **")
-            for v in storage_dict.values():
-                listall.append(str(v))
-                count_ += 1
-            if arg:
-                count_ = 0
-                if arg in class_mapping:
-                    for i in listall:
-                        if arg in i:
-                            listarg.append(i)
-                            count_ += 1
-                    print(count_)
+        for v in storage_dict.values():
+            listall.append(str(v))
+            count_ += 1
+        if arg:
+            count_ = 0
+            if arg in class_mapping:
+                for i in listall:
+                    if arg in i:
+                        listarg.append(i)
+                        count_ += 1
+                print(count_)
             else:
                 print(count_)
     def do_show(self, line):
