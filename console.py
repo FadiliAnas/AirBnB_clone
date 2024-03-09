@@ -26,9 +26,11 @@ class HBNBCommand(cmd.Cmd):
     prompt = " (hbnb) "
 
     def do_quit(self, arg):
+        """ This method represents quit"""
         return True
 
     def do_EOF(self, arg):
+        """ This method represents EOF"""
         print("\n")
         return True
 
@@ -37,6 +39,7 @@ class HBNBCommand(cmd.Cmd):
         print("Quit command to exit the program")
 
     def do_create(self, arg):
+        """ This method represents create"""
         try:
             new_instance = eval(arg)()
             new_instance.save()
@@ -87,6 +90,7 @@ class HBNBCommand(cmd.Cmd):
             print(listall)
 
     def do_count(self, arg):
+        """This function represents count instance"""
         listall = []
         listarg = []
         storage_dict = models.storage.all()
