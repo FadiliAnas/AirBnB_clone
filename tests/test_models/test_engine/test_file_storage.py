@@ -45,9 +45,9 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(obj_dict, dict)
         self.assertEqual(obj_dict['id'], obj.id)
         self.assertEqual(obj_dict['__class__'], 'BaseModel')
-        self.assertEqual(obj_dict['created_at'], \
+        self.assertEqual(obj_dict['created_at'],
                          obj.created_at.isoformat())
-        self.assertEqual(obj_dict['updated_at'], \
+        self.assertEqual(obj_dict['updated_at'],
                          obj.updated_at.isoformat())
 
 
