@@ -7,6 +7,7 @@ import datetime
 from unittest.mock import patch
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
 
     @patch('models.storage')
@@ -44,9 +45,11 @@ class TestBaseModel(unittest.TestCase):
             self.assertIsInstance(obj_dict, dict)
             self.assertEqual(obj_dict['id'], obj.id)
             self.assertEqual(obj_dict['__class__'], 'BaseModel')
-            self.assertEqual(obj_dict['created_at'], obj.created_at.isoformat())
-            self.assertEqual(obj_dict['updated_at'], obj.updated_at.isoformat())
+            self.assertEqual(obj_dict['created_at'],
+                             obj.created_at.isoformat())
+            self.assertEqual(obj_dict['updated_at'],
+                             obj.updated_at.isoformat())
+
 
 if __name__ == '__main__':
     unittest.main()
-
