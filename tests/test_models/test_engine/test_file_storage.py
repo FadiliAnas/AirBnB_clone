@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Test of file Storage
-"""
+""" Test of file Storage """
 import unittest
 import json
 import os
