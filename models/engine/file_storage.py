@@ -11,31 +11,22 @@ from models.review import Review
 
 
 class FileStorage:
-    """This 
-    class 
-    for file 
-    storage """
+    """This class for file storage """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """This
-          function 
-          represents all"""
+        """This function represents all"""
         return self.__objects
 
     def new(self, obj):
-        """This 
-        function 
-        represents new"""
+        """This function represents new"""
         if obj:
             keyequal = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects[keyequal] = obj
 
     def save(self):
-        """This 
-        function
-          represents save"""
+        """This function represents save"""
         json_dict = {}
         for k, v in FileStorage.__objects.items():
             json_dict[k] = v.to_dict()
@@ -43,9 +34,7 @@ class FileStorage:
             json.dump(json_dict, filejson, indent=4)
 
     def reload(self):
-        """This 
-            function
-          represents reload"""
+        """This function represents reload"""
         try:
             with open(FileStorage.__file_path, 'r') as filejsonload:
                 dict_load = json.load(filejsonload)
