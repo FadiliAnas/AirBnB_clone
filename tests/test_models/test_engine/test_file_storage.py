@@ -21,31 +21,31 @@ class TestFileStorage(unittest.TestCase):
         self.keyname = f"BaseModel.{self.instance.id}"
 
     def tearDown(self):
-        """Clean up hello how are you"""
+        """Clean up"""
         try:
             os.remove(FileStorage._FileStorage__file_path)
         except FileNotFoundError:
             pass
 
     def test_all_method_exists(self):
-        """Test if the 'all' method exists"""
+        """Test all method"""
         self.assertTrue(hasattr(models.storage, "all"))
 
     def test_new_method_exists(self):
-        """Test if the 'new' method exists"""
+        """Test new method"""
         self.assertTrue(hasattr(models.storage, "new"))
 
     def test_reload_method_exists(self):
-        """Test if the 'reload' method exists"""
+        """Test reload method"""
         self.assertTrue(hasattr(models.storage, "reload"))
 
     def test_all_method_returns_dict(self):
-        """Test if the 'all' method returns a dictionary"""
+        """Test all method"""
         result = models.storage.all()
         self.assertIsInstance(result, dict)
 
     def test_new_method_adds_to_objects(self):
-        """Test if the 'new' method adds to the objects dictionary"""
+        """Test new method add method"""
         obj = BaseModel()
         models.storage.new(obj)
         key = f"{obj.__class__.__name__}.{obj.id}"
