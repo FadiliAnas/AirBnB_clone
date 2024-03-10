@@ -9,6 +9,8 @@ The repository is organized based on different tasks related to the project. Eac
 ### Project Tasks and Files
 1. **Authors/README File**
     - **AUTHORS**: Lists project authors
+    - Anas Fadili
+    - Amine Afilal
 2. **Pep8**
     - All code is PEP8 compliant.
 3. **Unit Testing**
@@ -147,6 +149,3 @@ Feel free to explore more commands and features within the HBNB console!
 
 ## Contributors
 - List of project authors can be found in the [AUTHORS](AUTHORS) file.
-
-## Acknowledgments
-- Thanks to the AirBnB website for providing inspiration for this project.
