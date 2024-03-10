@@ -11,6 +11,7 @@ from models.review import Review
 import models
 import json
 
+
 class_mapping = {
     "BaseModel": BaseModel,
     "User": User,
@@ -31,6 +32,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """ This method represents EOF"""
+        print()
         return True
 
     def help_quit(self):
