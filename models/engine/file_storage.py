@@ -36,6 +36,7 @@ class FileStorage:
     def reload(self):
         """This function represents reload"""
         try:
+            FileStorage.__objects.clear()
             with open(FileStorage.__file_path, 'r') as filejsonload:
                 dict_load = json.load(filejsonload)
                 for k, v in dict_load.items():
