@@ -3,63 +3,51 @@
 Test of file Storage
 """
 import unittest
-import json
+from unittest.mock import patch
 import os
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models.engine.file_storage import FileStorage
-import models
 
 
 class TestFileStorage(unittest.TestCase):
-    """Unit tests for FileStorage"""
 
     def setUp(self):
-        """Set up the test cases"""
+        self.file_path = "test_file.json"
         self.storage = FileStorage()
-        setattr(self.storage, "_FileStorage__objects", {})
-        self.file_path = models.storage._FileStorage__file_path
-        self.instance = BaseModel()
-        self.objs = models.storage._FileStorage__objects
-        self.keyname = f"BaseModel.{self.instance.id}"
+        self.storage._FileStorage__file_path = self.file_path
 
-    def test_all_method_exists(self):
-        """Test if the 'all' method exists"""
-        self.assertTrue(hasattr(models.storage, "all"))
+    def tearDown(self):
+        if os.path.exists(self.file_path):
+            os.remove(self.file_path)
 
-    def test_new_method_exists(self):
-        """Test if the 'new' method exists"""
-        self.assertTrue(hasattr(models.storage, "new"))
-
-    def test_reload_method_exists(self):
-        """Test if the 'reload' method exists"""
-        self.assertTrue(hasattr(models.storage, "reload"))
-
-    def test_all_method_returns_dict(self):
-        """Test if the 'all' method returns a dictionary"""
-        result = models.storage.all()
-        self.assertIsInstance(result, dict)
-
-    def test_new_method_adds_to_objects(self):
-        """Test if the 'new' method adds to the objects dictionary"""
+    def test_all(self):
         obj = BaseModel()
-        models.storage.new(obj)
-        key = f"{obj.__class__.__name__}.{obj.id}"
-        self.assertIn(key, models.storage.all().keys())
+        obj_dict = obj.to_dict()
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        self.storage.new(obj)
+        all_objs = self.storage.all()
+        self.assertIn(key, all_objs)
+        self.assertEqual(all_objs[key], obj)
 
-    def test_save_method_saves_to_file(self):
-        """Test if the 'save' method saves to the file"""
-        my_model = BaseModel()
-        my_model.name = "My_First_Model"
-        my_model.my_number = 89
-        models.storage.new(my_model)
-        models.storage.save()
+    def test_save_reload(self):
+        obj = BaseModel()
+        self.storage.new(obj)
+        self.storage.save()
+        self.assertTrue(os.path.exists(self.file_path))
 
-        with open(self.file_path, "r") as data_file:
-            saved_data = json.load(data_file)
+        storage_reloaded = FileStorage()
+        storage_reloaded._FileStorage__file_path = self.file_path
+        storage_reloaded.reload()
 
-        expected_data = {key: value.to_dict() for key,
-                         value in self.objs.items()}
-        self.assertEqual(saved_data, expected_data)
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        self.assertIn(key, storage_reloaded.all())
+        self.assertEqual(storage_reloaded.all()[key].to_dict(), obj.to_dict())
 
 
 if __name__ == "__main__":
