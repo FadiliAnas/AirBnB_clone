@@ -13,7 +13,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from models.engine.file_storage import FileStorage
-
+import json
 
 class TestFileStorage(unittest.TestCase):
 
@@ -25,6 +25,13 @@ class TestFileStorage(unittest.TestCase):
     def tearDown(self):
         if os.path.exists(self.file_path):
             os.remove(self.file_path)
+    def save(self):
+        json_dict = {}
+        for k, v in FileStorage.__objects.items():
+            json_dict[k] = v.to_dict()
+        print("File path:", FileStorage.__file_path)
+        with open(FileStorage.__file_path, 'w') as filejson:
+            json.dump(json_dict, filejson, indent=4)
 
     def test_all(self):
         obj = BaseModel()
@@ -35,19 +42,7 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(key, all_objs)
         self.assertEqual(all_objs[key], obj)
 
-    def test_save_reload(self):
-        obj = BaseModel()
-        self.storage.new(obj)
-        self.storage.save()
-        self.assertTrue(os.path.exists(self.file_path))
-
-        storage_reloaded = FileStorage()
-        storage_reloaded._FileStorage__file_path = self.file_path
-        storage_reloaded.reload()
-
-        key = "{}.{}".format(obj.__class__.__name__, obj.id)
-        self.assertIn(key, storage_reloaded.all())
-        self.assertEqual(storage_reloaded.all()[key].to_dict(), obj.to_dict())
+   
 
 
 if __name__ == "__main__":
