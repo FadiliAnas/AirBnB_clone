@@ -24,7 +24,6 @@ class FileStorage:
         if obj:
             keyequal = "{}.{}".format(obj.__class__.__name__, obj.id)
             self.__objects[keyequal] = obj
-        
 
     def save(self):
         """This function represents save"""
