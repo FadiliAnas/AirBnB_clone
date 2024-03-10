@@ -4,7 +4,7 @@ import unittest
 import datetime
 from unittest.mock import patch
 from models.base_model import BaseModel
-
+from models.engine.file_storage import FileStorage
 
 class TestBaseModel(unittest.TestCase):
 
