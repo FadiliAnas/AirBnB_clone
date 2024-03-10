@@ -33,7 +33,8 @@ class TestCity(unittest.TestCase):
         city = City()
         city.name = "San Francisco"
         city.state_id = "CA"
-        self.assertEqual(str(city), "[City] ({}) {}".format(city.id, city.__dict__))
+        self.assertEqual(str(city), "[City] ({}) {}".format(
+            city.id, city.__dict__))
 
     def test_save(self):
         """Test save"""

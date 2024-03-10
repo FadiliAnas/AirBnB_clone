@@ -19,7 +19,8 @@ class TestReview(unittest.TestCase):
         """test str"""
         review = Review()
         review.save()
-        self.assertEqual(str(review), "[Review] ({}) {}".format(review.id, review.__dict__))
+        self.assertEqual(str(review), "[Review] ({}) {}".format(
+            review.id, review.__dict__))
 
     def test_type_review(self):
         """test type review"""

@@ -19,7 +19,8 @@ class TestUser(unittest.TestCase):
         """test str"""
         user = User()
         user.save()
-        self.assertEqual(str(user), "[User] ({}) {}".format(user.id, user.__dict__))
+        self.assertEqual(str(user), "[User] ({}) {}".format(
+            user.id, user.__dict__))
 
     def test_type_user(self):
         """test type user"""
