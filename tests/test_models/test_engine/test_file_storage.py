@@ -26,6 +26,7 @@ class TestFileStorage(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
         except FileNotFoundError:
             pass
+
     def test_all_method_exists(self):
         """Test if the 'all' method exists"""
         self.assertTrue(hasattr(models.storage, "all"))
@@ -67,4 +68,5 @@ class TestFileStorage(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main() 
+    
