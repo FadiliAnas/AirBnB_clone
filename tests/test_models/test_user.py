@@ -5,6 +5,7 @@ from models.user import User
 from models.base_model import BaseModel
 from models import storage
 
+
 class TestUser(unittest.TestCase):
     """Unittest for user"""
 
