@@ -1,31 +1,37 @@
 #!/usr/bin/python3
-"""Unit tests for State class"""
 import unittest
 from models.state import State
 
 
 class TestState(unittest.TestCase):
-    """Unit tests for State class"""
+    def setUp(self):
+        """Set up for testing"""
+        self.test_state = State()
 
-    def test_name(self):
-        """Test name"""
-        state = State()
-        state.name = "California"
-        self.assertEqual(state.name, "California")
+    def test_instance(self):
+        """Test if the object is an instance of State"""
+        self.assertIsInstance(self.test_state, State)
 
-    def test_id(self):
-        """Test id"""
-        state = State()
-        state.name = "California"
-        self.assertIsInstance(state.id, str)
-        self.assertEqual(len(state.id), 36)
+    def test_attributes(self):
+        """Test if the attributes are present"""
+        self.assertTrue(hasattr(self.test_state, 'name'))
+
+    def test_attributes_default_value(self):
+        """Test if the attributes have default values"""
+        self.assertEqual(self.test_state.name, "")
+
+    def test_to_dict(self):
+        """Test to_dict method"""
+        state_dict = self.test_state.to_dict()
+        self.assertEqual(state_dict['__class__'], 'State')
+        self.assertIsInstance(state_dict['created_at'], str)
+        self.assertIsInstance(state_dict['updated_at'], str)
 
     def test_str(self):
-        """Test str"""
-        state = State()
-        state.name = "California"
-        self.assertEqual(str(state), "[State] ({}) {}".\
-                         format(state.id, state.__dict__))
+        """Test __str__ method"""
+        expected_str = "[State] ({}) {}".format(
+            self.test_state.id, self.test_state.__dict__)
+        self.assertEqual(str(self.test_state), expected_str)
 
 
 if __name__ == '__main__':
