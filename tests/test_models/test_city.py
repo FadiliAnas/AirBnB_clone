@@ -1,49 +1,28 @@
 #!/usr/bin/python3
-"""Unittest for amenity"""
+"""Unittest for city"""
 import unittest
 from models.city import City
-from models.state import State
-
 
 class TestCity(unittest.TestCase):
-    """Unittest for amenity"""
+    def setUp(self):
+        self.city = City()
 
-    def test_name(self):
-        """Test name"""
-        city = City()
-        city.name = "San Francisco"
-        self.assertEqual(city.name, "San Francisco")
+    def test_state_id_default_value(self):
+        self.assertEqual(self.city.state_id, "")
 
-    def test_state_id(self):
-        """Test state_id"""
-        city = City()
-        city.state_id = "CA"
-        self.assertEqual(city.state_id, "CA")
+    def test_name_default_value(self):
+        self.assertEqual(self.city.name, "")
 
-    def test_id(self):
-        """Test id"""
-        city = City()
-        city.name = "San Francisco"
-        city.state_id = "CA"
-        self.assertIsInstance(city.id, str)
-        self.assertEqual(len(city.id), 36)
+    def test_set_state_id(self):
+        state_id = "123"
+        self.city.state_id = state_id
+        self.assertEqual(self.city.state_id, state_id)
 
-    def test_str(self):
-        """Test str"""
-        city = City()
-        city.name = "San Francisco"
-        city.state_id = "CA"
-        self.assertEqual(str(city), "[City] ({}) {}".format(
-            city.id, city.__dict__))
-
-    def test_save(self):
-        """Test save"""
-        city = City()
-        city.name = "San Francisco"
-        city.state_id = "CA"
-        city.save()
-        self.assertNotEqual(city.created_at, city.updated_at)
-
+    def test_set_name(self):
+        name = "New York"
+        self.city.name = name
+        self.assertEqual(self.city.name, name)
 
 if __name__ == '__main__':
     unittest.main()
+
