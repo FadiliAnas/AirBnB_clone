@@ -53,7 +53,10 @@ class TestFileStorage(unittest.TestCase):
         with open(self.file_path, "r") as data_file:
             saved_data = json.load(data_file)
 
-        expected_data = {key: value.to_dict() for key, value in self.objs.items()}
+        expected_data = {
+                            key: value.to_dict() 
+                            for key, value in self.objs.items()
+                        }
         self.assertEqual(saved_data, expected_data)
 
 
