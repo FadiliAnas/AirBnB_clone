@@ -121,6 +121,7 @@ class HBNBCommand(cmd.Cmd):
                 print(count_)
             else:
                 print(count_)
+
     def do_show(self, line):
         """This method represents show instance"""
         try:
@@ -135,11 +136,11 @@ class HBNBCommand(cmd.Cmd):
             if key in objects:
                 print(objects[key])
         except IndexError:
-            if lenght ==0:
+            if lenght == 0:
                 print("** class name missing **")
             if lenght == 1:
                 if args[0] in class_mapping:
-                    print("** instance id missing **") 
+                    print("** instance id missing **")
                 else:
                     print("** class doesn't exist **")
         except KeyError:
