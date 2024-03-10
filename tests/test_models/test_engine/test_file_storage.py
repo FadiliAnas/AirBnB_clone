@@ -15,6 +15,8 @@ class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         """Set up the test cases"""
+        self.storage = FileStorage()
+        setattr(self.storage, "_FileStorage__objects", {})
         self.file_path = models.storage._FileStorage__file_path
         self.instance = BaseModel()
         self.objs = models.storage._FileStorage__objects
