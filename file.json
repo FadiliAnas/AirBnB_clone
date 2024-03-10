@@ -3289,5 +3289,335 @@
         "created_at": "2024-03-10T07:08:59.492259",
         "updated_at": "2024-03-10T07:08:59.492272",
         "__class__": "User"
+    },
+    "Amenity.898f1fac-fda6-42e5-a187-fe274966ac10": {
+        "id": "898f1fac-fda6-42e5-a187-fe274966ac10",
+        "created_at": "2024-03-10T07:18:08.089048",
+        "updated_at": "2024-03-10T07:18:08.089048",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.40eb03ab-ea88-4c33-b5bd-55d68ce367bd": {
+        "id": "40eb03ab-ea88-4c33-b5bd-55d68ce367bd",
+        "created_at": "2024-03-10T07:18:08.089493",
+        "updated_at": "2024-03-10T07:18:08.089493",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.d34e417b-9fe9-488d-9b3b-0c7218888b2c": {
+        "id": "d34e417b-9fe9-488d-9b3b-0c7218888b2c",
+        "created_at": "2024-03-10T07:18:08.089975",
+        "updated_at": "2024-03-10T07:18:08.089984",
+        "__class__": "Amenity"
+    },
+    "Amenity.a804985c-ae3d-4708-8e6a-c4d2c7bd6db8": {
+        "id": "a804985c-ae3d-4708-8e6a-c4d2c7bd6db8",
+        "created_at": "2024-03-10T07:18:08.192074",
+        "updated_at": "2024-03-10T07:18:08.192089",
+        "__class__": "Amenity"
+    },
+    "Amenity.64ba2404-7c85-495f-bbf3-371b820dae03": {
+        "id": "64ba2404-7c85-495f-bbf3-371b820dae03",
+        "created_at": "2024-03-10T07:18:08.286092",
+        "updated_at": "2024-03-10T07:18:08.286092",
+        "__class__": "Amenity"
+    },
+    "BaseModel.9992615c-10ea-4946-9086-3832917d7c6b": {
+        "id": "9992615c-10ea-4946-9086-3832917d7c6b",
+        "created_at": "2024-03-10T07:18:08.291236",
+        "updated_at": "2024-03-10T07:18:08.291236",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.7852019b-72c1-46bd-bfca-b9ec021d01eb": {
+        "id": "7852019b-72c1-46bd-bfca-b9ec021d01eb",
+        "created_at": "2024-03-10T07:18:08.291624",
+        "updated_at": "2024-03-10T07:18:08.291624",
+        "__class__": "BaseModel"
+    },
+    "City.605eaabb-19cb-4c56-9aad-596dba1c0771": {
+        "id": "605eaabb-19cb-4c56-9aad-596dba1c0771",
+        "created_at": "2024-03-10T07:18:08.292057",
+        "updated_at": "2024-03-10T07:18:08.292057",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.27bcd43b-cb36-48ab-9486-18d78b7986c0": {
+        "id": "27bcd43b-cb36-48ab-9486-18d78b7986c0",
+        "created_at": "2024-03-10T07:18:08.292385",
+        "updated_at": "2024-03-10T07:18:08.292385",
+        "name": "San Francisco",
+        "__class__": "City"
+    },
+    "City.104710a8-37cb-4ecd-9150-9779fcfa3c56": {
+        "id": "104710a8-37cb-4ecd-9150-9779fcfa3c56",
+        "created_at": "2024-03-10T07:18:08.292676",
+        "updated_at": "2024-03-10T07:18:08.292685",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.833125ee-d463-4fb0-b8da-2df15ae90042": {
+        "id": "833125ee-d463-4fb0-b8da-2df15ae90042",
+        "created_at": "2024-03-10T07:18:08.388007",
+        "updated_at": "2024-03-10T07:18:08.388007",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.4bf21c2f-f1b1-48b3-bc86-b96a9735bb38": {
+        "id": "4bf21c2f-f1b1-48b3-bc86-b96a9735bb38",
+        "created_at": "2024-03-10T07:18:08.388411",
+        "updated_at": "2024-03-10T07:18:08.388411",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "Amenity.4cce9b62-5540-4690-85a3-e5a5db5b84be": {
+        "id": "4cce9b62-5540-4690-85a3-e5a5db5b84be",
+        "created_at": "2024-03-10T07:18:08.391083",
+        "updated_at": "2024-03-10T07:18:08.391083",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.3a848f84-9fcf-4c3d-81aa-5fa0e68ee4d4": {
+        "id": "3a848f84-9fcf-4c3d-81aa-5fa0e68ee4d4",
+        "created_at": "2024-03-10T07:18:08.391436",
+        "updated_at": "2024-03-10T07:18:08.391436",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.d6241e26-f995-4027-b5c7-f0c0e6aa2267": {
+        "id": "d6241e26-f995-4027-b5c7-f0c0e6aa2267",
+        "created_at": "2024-03-10T07:18:08.391750",
+        "updated_at": "2024-03-10T07:18:08.391757",
+        "__class__": "Amenity"
+    },
+    "Amenity.a4f1bffa-2888-4ab3-a8b0-958e093392a3": {
+        "id": "a4f1bffa-2888-4ab3-a8b0-958e093392a3",
+        "created_at": "2024-03-10T07:18:08.493714",
+        "updated_at": "2024-03-10T07:18:08.493727",
+        "__class__": "Amenity"
+    },
+    "Amenity.e4cabafc-3e28-44e1-9db7-63742fb453fe": {
+        "id": "e4cabafc-3e28-44e1-9db7-63742fb453fe",
+        "created_at": "2024-03-10T07:18:08.587011",
+        "updated_at": "2024-03-10T07:18:08.587011",
+        "__class__": "Amenity"
+    },
+    "Review.4850d4f9-1335-4947-94de-0430dcebd85b": {
+        "id": "4850d4f9-1335-4947-94de-0430dcebd85b",
+        "created_at": "2024-03-10T07:18:08.587152",
+        "updated_at": "2024-03-10T07:18:08.587158",
+        "__class__": "Review"
+    },
+    "Review.c6db1427-f22d-4502-9fba-af5f38dbdb2e": {
+        "id": "c6db1427-f22d-4502-9fba-af5f38dbdb2e",
+        "created_at": "2024-03-10T07:18:08.687095",
+        "updated_at": "2024-03-10T07:18:08.687113",
+        "__class__": "Review"
+    },
+    "Review.1ef6da77-128e-434f-a99c-5aadc3d0be0c": {
+        "id": "1ef6da77-128e-434f-a99c-5aadc3d0be0c",
+        "created_at": "2024-03-10T07:18:08.788565",
+        "updated_at": "2024-03-10T07:18:08.788565",
+        "__class__": "Review"
+    },
+    "State.95ac3c07-91b4-4831-8d21-05f7253588df": {
+        "id": "95ac3c07-91b4-4831-8d21-05f7253588df",
+        "created_at": "2024-03-10T07:18:08.788711",
+        "updated_at": "2024-03-10T07:18:08.788711",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.64a0d604-8dbb-4e1c-9953-6ce5bd58d54b": {
+        "id": "64a0d604-8dbb-4e1c-9953-6ce5bd58d54b",
+        "created_at": "2024-03-10T07:18:08.788778",
+        "updated_at": "2024-03-10T07:18:08.788778",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.f78bafd8-85c9-4e3a-895d-14118da7cf93": {
+        "id": "f78bafd8-85c9-4e3a-895d-14118da7cf93",
+        "created_at": "2024-03-10T07:18:08.788829",
+        "updated_at": "2024-03-10T07:18:08.788829",
+        "name": "California",
+        "__class__": "State"
+    },
+    "User.ed44df38-1c78-4ff6-9a3e-9c3166e54110": {
+        "id": "ed44df38-1c78-4ff6-9a3e-9c3166e54110",
+        "created_at": "2024-03-10T07:18:08.788937",
+        "updated_at": "2024-03-10T07:18:08.788942",
+        "__class__": "User"
+    },
+    "User.0c788010-fc3e-4ce8-9a71-e4d5b6a8c42e": {
+        "id": "0c788010-fc3e-4ce8-9a71-e4d5b6a8c42e",
+        "created_at": "2024-03-10T07:18:08.886581",
+        "updated_at": "2024-03-10T07:18:08.886597",
+        "__class__": "User"
+    },
+    "Amenity.279847d3-7106-401a-b083-998ec04db51a": {
+        "id": "279847d3-7106-401a-b083-998ec04db51a",
+        "created_at": "2024-03-10T07:18:17.089222",
+        "updated_at": "2024-03-10T07:18:17.089222",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.42402b26-06e1-4491-a7e1-ee1ef84f1696": {
+        "id": "42402b26-06e1-4491-a7e1-ee1ef84f1696",
+        "created_at": "2024-03-10T07:18:17.089474",
+        "updated_at": "2024-03-10T07:18:17.089474",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.bb193352-b6b3-48a8-a9c0-6d5f5e2499e6": {
+        "id": "bb193352-b6b3-48a8-a9c0-6d5f5e2499e6",
+        "created_at": "2024-03-10T07:18:17.089719",
+        "updated_at": "2024-03-10T07:18:17.089729",
+        "__class__": "Amenity"
+    },
+    "Amenity.7eb00ea5-bfe4-4a2b-a999-aa87664142dd": {
+        "id": "7eb00ea5-bfe4-4a2b-a999-aa87664142dd",
+        "created_at": "2024-03-10T07:18:17.189086",
+        "updated_at": "2024-03-10T07:18:17.189102",
+        "__class__": "Amenity"
+    },
+    "Amenity.9f63fbfa-0161-45c7-b603-f51226411d0a": {
+        "id": "9f63fbfa-0161-45c7-b603-f51226411d0a",
+        "created_at": "2024-03-10T07:18:17.289225",
+        "updated_at": "2024-03-10T07:18:17.289225",
+        "__class__": "Amenity"
+    },
+    "BaseModel.8f88fcb2-e450-456d-ae44-2201a9934019": {
+        "id": "8f88fcb2-e450-456d-ae44-2201a9934019",
+        "created_at": "2024-03-10T07:18:17.298266",
+        "updated_at": "2024-03-10T07:18:17.298266",
+        "__class__": "BaseModel"
+    },
+    "BaseModel.600a9525-08ca-400e-a7ae-a7e345bf4357": {
+        "id": "600a9525-08ca-400e-a7ae-a7e345bf4357",
+        "created_at": "2024-03-10T07:18:17.298582",
+        "updated_at": "2024-03-10T07:18:17.298582",
+        "__class__": "BaseModel"
+    },
+    "City.6942cd5f-49e0-4d41-9c7c-6407b4c7235a": {
+        "id": "6942cd5f-49e0-4d41-9c7c-6407b4c7235a",
+        "created_at": "2024-03-10T07:18:17.299120",
+        "updated_at": "2024-03-10T07:18:17.299120",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.6b7438f7-c595-4616-b287-5016967b32e3": {
+        "id": "6b7438f7-c595-4616-b287-5016967b32e3",
+        "created_at": "2024-03-10T07:18:17.299369",
+        "updated_at": "2024-03-10T07:18:17.299369",
+        "name": "San Francisco",
+        "__class__": "City"
+    },
+    "City.7b5d19f6-e2ab-40ca-b042-c2a200ed4962": {
+        "id": "7b5d19f6-e2ab-40ca-b042-c2a200ed4962",
+        "created_at": "2024-03-10T07:18:17.299583",
+        "updated_at": "2024-03-10T07:18:17.299592",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.1794b08c-27c1-4655-b32b-1483fce9b566": {
+        "id": "1794b08c-27c1-4655-b32b-1483fce9b566",
+        "created_at": "2024-03-10T07:18:17.390397",
+        "updated_at": "2024-03-10T07:18:17.390397",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "City.86d025ac-1d1f-4373-9351-264fcd8a7d6e": {
+        "id": "86d025ac-1d1f-4373-9351-264fcd8a7d6e",
+        "created_at": "2024-03-10T07:18:17.390677",
+        "updated_at": "2024-03-10T07:18:17.390677",
+        "name": "San Francisco",
+        "state_id": "CA",
+        "__class__": "City"
+    },
+    "Amenity.39cae665-95ec-484d-b490-278d8e595a3c": {
+        "id": "39cae665-95ec-484d-b490-278d8e595a3c",
+        "created_at": "2024-03-10T07:18:17.392899",
+        "updated_at": "2024-03-10T07:18:17.392899",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.7a381e20-3f02-4a00-bdc9-b0f62808b69d": {
+        "id": "7a381e20-3f02-4a00-bdc9-b0f62808b69d",
+        "created_at": "2024-03-10T07:18:17.393092",
+        "updated_at": "2024-03-10T07:18:17.393092",
+        "name": "Wifi",
+        "__class__": "Amenity"
+    },
+    "Amenity.b86b4864-695e-482d-9b6a-1ae0bd640b73": {
+        "id": "b86b4864-695e-482d-9b6a-1ae0bd640b73",
+        "created_at": "2024-03-10T07:18:17.393241",
+        "updated_at": "2024-03-10T07:18:17.393247",
+        "__class__": "Amenity"
+    },
+    "Amenity.1058a5dd-c617-4394-9960-0f33a0b90dc0": {
+        "id": "1058a5dd-c617-4394-9960-0f33a0b90dc0",
+        "created_at": "2024-03-10T07:18:17.493763",
+        "updated_at": "2024-03-10T07:18:17.493780",
+        "__class__": "Amenity"
+    },
+    "Amenity.4ecf71fa-c31c-47af-accb-39aa4c1ba3d9": {
+        "id": "4ecf71fa-c31c-47af-accb-39aa4c1ba3d9",
+        "created_at": "2024-03-10T07:18:17.595368",
+        "updated_at": "2024-03-10T07:18:17.595368",
+        "__class__": "Amenity"
+    },
+    "Review.d33adb5b-d4f7-4ac0-96a5-021002671272": {
+        "id": "d33adb5b-d4f7-4ac0-96a5-021002671272",
+        "created_at": "2024-03-10T07:18:17.595521",
+        "updated_at": "2024-03-10T07:18:17.595529",
+        "__class__": "Review"
+    },
+    "Review.31aaefab-4e0f-4d6b-ac22-a82438f2ea39": {
+        "id": "31aaefab-4e0f-4d6b-ac22-a82438f2ea39",
+        "created_at": "2024-03-10T07:18:17.689338",
+        "updated_at": "2024-03-10T07:18:17.689356",
+        "__class__": "Review"
+    },
+    "Review.e4224ada-a55c-4382-9382-161a974b4b1e": {
+        "id": "e4224ada-a55c-4382-9382-161a974b4b1e",
+        "created_at": "2024-03-10T07:18:17.792137",
+        "updated_at": "2024-03-10T07:18:17.792137",
+        "__class__": "Review"
+    },
+    "State.f2524d14-ebb2-4831-9b81-ec756381925b": {
+        "id": "f2524d14-ebb2-4831-9b81-ec756381925b",
+        "created_at": "2024-03-10T07:18:17.792671",
+        "updated_at": "2024-03-10T07:18:17.792671",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.23109b7d-2b45-4735-bc3c-37441576ff80": {
+        "id": "23109b7d-2b45-4735-bc3c-37441576ff80",
+        "created_at": "2024-03-10T07:18:17.793080",
+        "updated_at": "2024-03-10T07:18:17.793080",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.fea8129e-2e48-4946-b7a8-097c68dfbc58": {
+        "id": "fea8129e-2e48-4946-b7a8-097c68dfbc58",
+        "created_at": "2024-03-10T07:18:17.793519",
+        "updated_at": "2024-03-10T07:18:17.793519",
+        "name": "California",
+        "__class__": "State"
+    },
+    "User.6b2480f5-2992-46f2-82f9-124aefc6f86e": {
+        "id": "6b2480f5-2992-46f2-82f9-124aefc6f86e",
+        "created_at": "2024-03-10T07:18:17.794478",
+        "updated_at": "2024-03-10T07:18:17.794487",
+        "__class__": "User"
+    },
+    "User.b1677279-96fa-4de8-a5e3-5afa9a51299f": {
+        "id": "b1677279-96fa-4de8-a5e3-5afa9a51299f",
+        "created_at": "2024-03-10T07:18:17.890984",
+        "updated_at": "2024-03-10T07:18:17.891000",
+        "__class__": "User"
     }
 }
