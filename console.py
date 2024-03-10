@@ -68,8 +68,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** class name missing **")
             elif args[0] not in class_mapping:
                 print("** class doesn't exist **")
-            elif lenght == 1:
-                print("** instance id missing **")
             else:
                 key_to_delete = "{}.{}".format(args[0], args[1])
                 storage_dict = models.storage.all()
@@ -121,7 +119,6 @@ class HBNBCommand(cmd.Cmd):
                 print(count_)
             else:
                 print(count_)
-
     def do_show(self, line):
         """This method represents show instance"""
         try:
@@ -135,12 +132,13 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             if key in objects:
                 print(objects[key])
+            
         except IndexError:
-            if lenght == 0:
+            if lenght ==0:
                 print("** class name missing **")
             if lenght == 1:
                 if args[0] in class_mapping:
-                    print("** instance id missing **")
+                    print("** instance id missing **") 
                 else:
                     print("** class doesn't exist **")
         except KeyError:
