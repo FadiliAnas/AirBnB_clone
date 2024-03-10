@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Test of file Storage """
+"""Test of file Storage"""
 import unittest
 import json
 import os
@@ -20,6 +20,12 @@ class TestFileStorage(unittest.TestCase):
         self.objs = models.storage._FileStorage__objects
         self.keyname = f"BaseModel.{self.instance.id}"
 
+    def tearDown(self):
+        """Clean up"""
+        try:
+            os.remove(FileStorage._FileStorage__file_path)
+        except FileNotFoundError:
+            pass
     def test_all_method_exists(self):
         """Test if the 'all' method exists"""
         self.assertTrue(hasattr(models.storage, "all"))
