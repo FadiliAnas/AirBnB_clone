@@ -78,11 +78,11 @@ if result is None or result == "":
     
 model_id = result
 
-result = exec_command(my_console, "destroy BaseModel")
+result = exec_command(my_console, "show BaseModel 1{}1".format(model_id))
 if result is None or result == "":
     print("FAIL: no output")
     
-search_str = "** instance id missing **"
+search_str = "** no instance found **"
 if result != search_str:
     print("FAIL: wrong message: \"{}\" instead of \"{}\"".format(result, search_str))
     
