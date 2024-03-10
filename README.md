@@ -10,7 +10,7 @@ The repository is organized based on different tasks related to the project. Eac
 1. **Authors/README File**
     - **AUTHORS**: Lists project authors
     - Anas Fadili
-    - Amine Afilal
+    - Amine Afilal El alami
 2. **Pep8**
     - All code is PEP8 compliant.
 3. **Unit Testing**
