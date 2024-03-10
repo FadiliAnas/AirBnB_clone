@@ -132,8 +132,8 @@ class HBNBCommand(cmd.Cmd):
             objects = models.storage.all()
             if class_name not in class_mapping:
                 print("** class doesn't exist **")
-            if key in objects
-                print(objects[key]
+            if key in objects:
+                print(objects[key])
         except IndexError:
             if lenght ==0:
                 print("** class name missing **")
