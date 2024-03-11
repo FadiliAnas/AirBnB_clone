@@ -31,7 +31,7 @@ class FileStorage:
         for k, v in FileStorage.__objects.items():
             json_dict[k] = v.to_dict()
         with open(FileStorage.__file_path, 'w') as filejson:
-            json.dump(json_dict, filejson, indent=4)
+            json.dump(json_dict, filejson)
 
     def reload(self):
         """This function represents reload"""
