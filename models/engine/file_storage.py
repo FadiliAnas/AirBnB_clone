@@ -39,6 +39,8 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as filejsonload:
                 dict_load = json.load(filejsonload)
                 for k, v in dict_load.items():
-                    FileStorage.__objects[k] = eval(v["__class__"])(**v)
+                    class_name = v["__class__"]
+                    obj = globals()[class_name](**v)
+                    FileStorage.__objects[k] = obj
         except FileNotFoundError:
             return
