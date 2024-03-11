@@ -37,7 +37,7 @@ class FileStorage:
         """This function represents reload"""
         try:
             with open(FileStorage.__file_path, 'r') as filejsonload:
-                dict_load = json.load(filejsonload,indent=4)
+                dict_load = json.load(filejsonload)
                 for k, v in dict_load.items():
                     FileStorage.__objects[k] = eval(v["__class__"])(**v)
         except FileNotFoundError:
