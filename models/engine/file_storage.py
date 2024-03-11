@@ -31,13 +31,13 @@ class FileStorage:
         for k, v in FileStorage.__objects.items():
             json_dict[k] = v.to_dict()
         with open(FileStorage.__file_path, 'w') as filejson:
-            json.dump(json_dict, filejson)
+            json.dump(json_dict, filejson, indent=4)
 
     def reload(self):
         """This function represents reload"""
         try:
             with open(FileStorage.__file_path, 'r') as filejsonload:
-                dict_load = json.load(filejsonload)
+                dict_load = json.load(filejsonload,indent=4)
                 for k, v in dict_load.items():
                     FileStorage.__objects[k] = eval(v["__class__"])(**v)
         except FileNotFoundError:
