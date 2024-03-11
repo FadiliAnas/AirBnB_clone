@@ -41,4 +41,8 @@ class FileStorage:
                 for k, v in dict_load.items():
                     FileStorage.__objects[k] = eval(v["__class__"])(**v)
         except FileNotFoundError:
-            return
+            return "OK"
+        except Exception as e:
+            return str(e) 
+        else:
+            return "OK"
