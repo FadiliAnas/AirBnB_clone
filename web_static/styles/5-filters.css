@@ -1,52 +1,57 @@
-.filters{
+.filters {
     background-color: white;
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    align-items: center;
     display: flex;
-    padding: 0 5%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+   
 }
-.filters button {
-    font-size: 18px;
+.search-button {
     background-color: #FF5A5F;
     color: #FFFFFF;
+    font-size: 18px;
     height: 48px;
-    right: 30px;
     width: 20%;
     border: none;
     border-radius: 4px;
-    margin-left: auto;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-left:20%;
+  }
 
+.search-button:hover {
+    opacity: 0.9;
 }
-.filters button:hover {
-  opacity: 0.9;
+
+.locations {
+    width: 25%;
+    height: auto;
+    padding-left: 40px;
 }
-.locations{
+.amenities {
     width: 25%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: start;
-    flex-direction: column;
-}
-.amenities{
-    border-left: 1px solid #DDDDDD;
-    display: flex;
     flex-direction: column;
     align-items: start;
-    width: 25%;
-    height: 100%;
-    padding-left: 5%;
+    padding-left: 40px;
     justify-content: center;
+    border-left: #DDDDDD solid 1px;
 }
-h3{
+
+h3 {
     font-weight: 600;
     padding: 0;
     margin: 0;
+
 }
-h4{
+
+
+h4 {
     font-weight: 400;
     font-size: 14px;
     padding: 0;
